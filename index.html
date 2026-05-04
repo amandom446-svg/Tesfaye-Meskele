@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tesfaye Meskele</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+        /* ── HERO HEADER: push below fixed navbar using margin-top ── */
+        .hero {
+            margin-top: 70px;        /* desktop navbar height */
+            padding: 30px 16px;
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .hero h1 {
+            font-size: clamp(1.6rem, 7vw, 3.5rem);
+            line-height: 1.2;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        .hero h5 {
+            font-size: clamp(0.85rem, 3.5vw, 1.25rem);
+            line-height: 1.4;
+        }
+        @media (max-width: 767px) {
+            .hero {
+                margin-top: 76px;    /* mobile hamburger bar height */
+            }
+        }
+
+        /* ── US DEPARTMENT IMAGES MOBILE FIX ── */
+        #us-department img {
+            max-width: 60%;
+            height: auto;
+            display: block;
+            margin: 12px auto;
+        }
+        @media (max-width: 768px) {
+            #us-department img {
+                max-width: 100%;
+            }
+        }
+
+        /* ── CHILDHOOD IMAGE MOBILE FIX ── */
+        #childhood-journey img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 12px auto;
+        }
+        @media (max-width: 768px) {
+            #childhood-journey img {
+                max-width: 100%;
+            }
+        }
+
+        /* ── VIDEO: contained, no auto-expand ── */
+        .video-wrapper {
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            display: block;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* ── FOOTER: normal flow, only shows at page bottom ── */
+        .footer {
+            position: static !important;
+            background-color: #111111 !important;
+            background-image: none !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+            padding: 24px 20px;
+        }
+        .footer .copy-right {
+            color: #ffffff !important;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .footer .footer-credits {
+            color: #ffffff !important;
+            font-size: 12px;
+            opacity: 0.75;
+            text-align: center;
+        }
+        .footer .footer-credits a {
+            color: #ffffff !important;
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-light fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" onclick="showSection('home')">
+            <img src="images/logo.png" width="60px" height="60px" alt="">
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav me-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSection('home')">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Ethiopian Expedition</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="showSection('Oromia')">Oromia</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSection('TanaBeles')">Tana Beles</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSection('Amhara')">Amhara</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSection('Tigray')">Tigray</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSection('afar')">Afar</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="showSection('about')">About</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSection('us-department')">U.S. Dept</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSection('childhood-journey')">Childhood</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showSection('awards')">Awards</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSection('gallery')">Gallery</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO HEADER -->
+<header class="hero">
+    <h1>Tesfaye Meskele</h1>
+    <h5>Where the road ends, resilience begins!</h5>
+</header>
+
+<main class="container">
+
+    <!-- HOME -->
+    <section id="home">
+        <div class="video-wrapper">
+            <video controls preload="metadata" poster="">
+                <source src="images/0209.mp4#t=9" type="video/mp4">
+            </video>
+            <script>
+                (function() {
+                    var vid = document.currentScript.previousElementSibling;
+                    vid.addEventListener('loadedmetadata', function() {
+                        vid.currentTime = 9;
+                    });
+                    vid.addEventListener('seeked', function() {
+                        var canvas = document.createElement('canvas');
+                        canvas.width = vid.videoWidth;
+                        canvas.height = vid.videoHeight;
+                        canvas.getContext('2d').drawImage(vid, 0, 0);
+                        vid.setAttribute('poster', canvas.toDataURL('image/jpeg'));
+                        vid.currentTime = 0;
+                    }, { once: true });
+                })();
+            </script>
+        </div>
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section id="description">
+        <p>The late Tesfaye Meskele is remembered as a loving father, devoted husband, and the heart of our family. He was a provider who carried his responsibilities with quiet strength, humility, and deep dedication to those he cared for. Throughout his life, he served in humanitarian, development, and diplomatic missions across Ethiopia, often in very challenging conditions, and we are proud of the humanitarian work he did and the lives he touched through his service. Beyond his professional life, we remember his kindness, resilience, and strong sense of duty, which defined both his career and the way he cared for us. His memory will always remain a source of love, pride, and lasting gratitude in our family, and he will always stay in our hearts.</p>
+        <p>from his family</p>
+        <img class="img-fluid" src="images/photo_2024-05-02_18-07-51.jpg">
+        <!-- Follow on social -->
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px; margin-top:16px; flex-wrap:wrap;">
+            <span style="font-size:14px; opacity:0.85;">Follow on social</span>
+            <a href="https://www.instagram.com/wheelofresilience?igsh=MWh2d3Qxd2JlcHVkbQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" style="color:inherit;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm.003 1.44c2.136 0 2.39.009 3.233.048.78.036 1.203.166 1.485.276.374.145.64.319.92.599s.453.546.598.92c.11.281.24.705.276 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.036.78-.166 1.203-.276 1.485-.145.374-.319.64-.599.92s-.546.453-.92.598c-.28.11-.704.24-1.485.276-.842.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.282-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.843-.038 1.096-.047 3.232-.047zM8 3.892a4.108 4.108 0 1 0 0 8.216 4.108 4.108 0 0 0 0-8.216zm0 6.775a2.667 2.667 0 1 1 0-5.334 2.667 2.667 0 0 1 0 5.334zm5.23-6.937a.96.96 0 1 1-1.92 0 .96.96 0 0 1 1.92 0z"/>
+                </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1CjSEHaeEH/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook" style="color:inherit;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="page-section">
+        <h2>About Tesfaye</h2>
+        <p>Tesfaye Meskele is remembered as a disciplined and highly respected professional driver whose career was closely connected with major humanitarian, development, and diplomatic missions across Ethiopia. Over the course of several decades, he earned recognition for resilience, discretion, and exceptional operational skill under some of the most challenging conditions in the country.</p>
+
+        <p>He began his service under the Relief and Rehabilitation Commission (RRC), the government body established in 1974 to coordinate national disaster response, resettlement, and humanitarian operations. During the 1980s resettlement programs, the Metekel–Pawe area in Gojjam was developed as a relocation site for populations moved primarily from northern Ethiopia, including Tigray. In this demanding environment, Tesfaye carried out extensive overland transport missions across remote and underdeveloped terrain. He delivered essential food supplies and relief materials, including nutritional support items and sugar intended for malnourished children and vulnerable communities. His work required endurance, mechanical expertise, and precise route planning. Throughout these assignments, he faced severe hardships, including desert travel, extreme weather, malaria illness, brake failures in isolated regions, and even attempted hijackings. Despite these risks, he consistently completed his missions with professionalism and courage.</p>
+
+        <p>He later contributed to Ethiopia's national infrastructure development through the Tana-Beles Dam Project, a major hydro-engineering initiative linking Lake Tana to the Beles River basin. There, he served as a mobile clinic driver, ensuring medical personnel could reach workers in remote operational areas. He subsequently worked with Salini (Salini Impregilo), the Italian engineering firm involved in large-scale dam and infrastructure projects, further strengthening his experience in multinational technical environments.</p>
+
+        <p>Tesfaye later joined the Italian Development Cooperation (Cooperazione Italiana), supporting tuberculosis control initiatives in the Oromia Region, particularly in Asella. He transported Italian physicians and public health professionals working to strengthen TB prevention and treatment programs. As the initiative expanded under Ethiopia's Health Sector Development Program (HSDP), he once again undertook nationwide overland expeditions, transporting doctors and technical specialists to remote regions across the country.</p>
+
+        <p>In the final stage of his distinguished career, Tesfaye served in the Motor Pool Department of the U.S. Embassy in Addis Ababa. He completed certified offensive and defensive driving training and was entrusted with high-level diplomatic transport responsibilities. He drove U.S. Ambassador Patricia Haslach and the USAID Mission Director Dennis Weller during official engagements and field missions. He also supported VIP security coordination with the Presidential protection team during President Barack Obama's historic 2015 visit to Ethiopia. His professionalism and advanced driving capability earned him formal recognition from the White House motorcade unit.</p>
+
+        <p>Tesfaye Meskele's career reflects a lifetime of disciplined service across humanitarian response, national development, international public health, and diplomatic missions — distinguished by technical skill, discretion, and unwavering dedication.</p>
+    </section>
+
+    <section id="us-department" class="page-section">
+        <h2>U.S. Department Contribution</h2>
+        <p>After contributing to numerous projects throughout Ethiopia, Tesfaye transitioned to the U.S. Embassy's Motorpool Department, where he dedicated over a decade of service. His role allowed him to collaborate with the POTUS VIP team and earned him multiple awards, including one directly from the White House Motor Department.</p>
+        <img src="images/photo_2025-01-09_15-39-40.jpg" alt="Air force 1" />
+        <img src="images/photo_2025-01-09_15-39-45.jpg" alt="The Beast" />
+    </section>
+
+    <section id="childhood-journey" class="page-section">
+        <h3>Childhood Journey</h3>
+        <p>As Tesfaye reached school age, he began his education with traditional spiritual lessons, known as Kollo Timhirt, led by elderly priests called Yenieta. However, the British government and a local landowner named Abate Amberbir supported the establishment of a modern primary school, named after Abate Amberbir, in the town of Tefki. Tesfaye and his peers were among the first students to enroll in this new school.</p>
+        <img src="images/photo_2024-05-02_19-26-42.jpg" alt="Abate Amberbir School Grade 2 class" />
+    </section>
+
+    <section id="awards" class="page-section">
+        <h2>Awards</h2>
+        <p>Content coming soon.</p>
+    </section>
+
+    <!-- OROMIA -->
+    <section id="Oromia" class="page-section">
+        <h2>Oromia</h2>
+        <p>After spending considerable time in the Amhara region working on the Tana Beles and RRC projects, he briefly returned to Addis Ababa following the rise of the TPLF. He later joined an Italian Cooperation aid project and was assigned to the Oromia region, focusing on tuberculosis control in Asella and nearby areas. Over time, his work extended across various parts of Oromia, including Abboomssa, Arba Gugu, Asella, Bale Robe, Borena, Dolo Manna, Ginir, Gambo, Hurutta, Kielem Wollega, Mettu, and Nekemt Wollega.</p>
+        <img class="img-fluid" src="images/photo_2025-01-08_14-50-03.jpg">
+        <img class="img-fluid" src="images/photo_2024-05-02_18-07-51.jpg" />
+    </section>
+
+    <!-- AMHARA -->
+    <section id="Amhara" class="page-section">
+        <h2>Amhara</h2>
+        <p>According to Tesfaye's account, he spent approximately eight years in the Amhara region, working with the Relief and Rehabilitation Commission (RRC) and on the Tana Beles dam projects. He described the Metekel Pawe area as the most challenging, with its harsh, scorching climate. During this time, he navigated numerous adventurous road conditions and overcame difficult living environments.</p>
+        <img class="img-fluid" src="images/88C2FC04.jpg">
+        <img class="img-fluid" src="images/135A441E.jpg" alt="Gondar fasi" />
+        <img class="img-fluid" src="images/D84334B2.jpg" alt="Fasil ginb" />
+    </section>
+
+    <!-- TANA BELES -->
+    <section id="TanaBeles" class="page-section">
+        <h2>Tana Beles Project</h2>
+        <p>During the Derg regime (1974–1991), the Tana Beles project was among Ethiopia's most ambitious and debated development initiatives, aligned with the Derg's socialist-driven efforts to modernize agriculture and the economy. Tesfaye played a crucial role, contributing tirelessly through his work with Salini Construction. His experiences during this period were filled with adventure and will be detailed in his upcoming book.</p>
+        <img class="img-fluid" src="images/photo_2025-01-09_13-39-26.jpg">
+    </section>
+
+    <!-- AFAR -->
+    <section id="afar" class="page-section">
+        <h2>Afar</h2>
+        <p>Tesfaye Meskele often traveled to Afar as part of the Italian Cooperation initiative, later contributing to a project known as the Health Sector Development Program (HSDP). This program focused on establishing clinics in Ethiopia's most remote areas.</p>
+        <p>As noted by Tesfaye, the HSDP specifically targeted Ethiopia's distant regions, including Afar, Oromia, Amhara, and Tigray. Between 1990 and 2006, the road network connecting Addis Ababa to the Afar region presented significant challenges, particularly along the route passing through the Awash area.</p>
+        <p>The primary route from Addis Ababa to Afar during this period involved traveling eastward through the town of Awash. The road conditions were often poor, with limited infrastructure, making the journey arduous for drivers.</p>
+        <img class="img-fluid" src="images/pixelcut-export2.jpeg">
+        <img class="img-fluid" src="images/pixelcut-export.jpeg" />
+        <img class="img-fluid" src="images/photo_2025-01-09_13-39-20.jpg" />
+        <img class="img-fluid" src="images/photo_2025-05-10_00-40-59.jpg" />
+        <img class="img-fluid" src="images/photo_2025-05-10_00-41-59.jpg" />
+        <img class="img-fluid" src="images/photo_2025-05-10_00-41-26.jpg" />
+        <img class="img-fluid" src="images/whatsapp1.jpg" alt="HSDP Project in Afar" />
+    </section>
+
+    <!-- TIGRAY -->
+    <section id="Tigray" class="page-section">
+        <h2>Tigray</h2>
+        <img class="img-fluid" src="images/whatsapp3.jpeg">
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="page-section">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <img class="gallery-thumb" src="images/IM000083.jpg" onclick="openLightbox(0)" alt="Gallery image 1">
+            <img class="gallery-thumb" src="images/IM000084.jpg" onclick="openLightbox(1)" alt="Gallery image 2">
+            <img class="gallery-thumb" src="images/afar_zone_5_2005_11.jpg" onclick="openLightbox(2)" alt="Afar Zone 5 2005" />
+            <img class="gallery-thumb" src="images/afar_zone2.jpg" onclick="openLightbox(3)" alt="Afar Zone 2" />
+            <img class="gallery-thumb" src="images/afar_zone_2_026.jpg" onclick="openLightbox(4)" alt="Afar Zone 2 - 026" />
+            <img class="gallery-thumb" src="images/afar_zone_2_035.jpg" onclick="openLightbox(5)" alt="Afar Zone 2 - 035" />
+            <img class="gallery-thumb" src="images/afar_zone_2_047.jpg" onclick="openLightbox(6)" alt="Afar Zone 2 - 047" />
+            <img class="gallery-thumb" src="images/IM000083.jpg" onclick="openLightbox(7)" alt="Gallery image 8">
+            <img class="gallery-thumb" src="images/IM000084.jpg" onclick="openLightbox(8)" alt="Gallery image 9">
+            <img class="gallery-thumb" src="images/IM000085.jpg" onclick="openLightbox(9)" alt="Gallery image 10">
+            <img class="gallery-thumb" src="images/IM000090.jpg" onclick="openLightbox(10)" alt="Gallery image 11">
+            <img class="gallery-thumb" src="images/IM000091.jpg" onclick="openLightbox(11)" alt="Gallery image 12">
+            <img class="gallery-thumb" src="images/whatsapp4.jpeg" onclick="openLightbox(12)" alt="Gallery image 13">
+            <img class="gallery-thumb" src="images/afar_zone_5_2005.jpg" onclick="openLightbox(13)" alt="Afar Zone 5 2005" />
+            <img class="gallery-thumb" src="images/afar_zone_5_2005_10.jpg" onclick="openLightbox(14)" alt="Afar Zone 5 2005 - 10" />
+        </div>
+    </section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightboxOnBackdrop(event)">
+    <img id="lightbox-img" alt="Lightbox image">
+    <button id="lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+    <button id="lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+    <button id="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="copy-right">
+        © 2026 Tesfaye Meskele — All rights reserved.
+    </div>
+    <div class="footer-credits">
+        Designed by Amanuel Tesfaye/
+        <a href="https://www.freepik.com" target="_blank">Freepik</a>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
